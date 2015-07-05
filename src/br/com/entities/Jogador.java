@@ -22,13 +22,32 @@ public class Jogador {
 	private long id;
 	private String nome;
 	private List<Acao> lista;
-
+	private List<Armas> armas;
+	
 	@Id
 	@GeneratedValue
 	public long getId() {
 		return id;
 	}
 	
+	public Jogador(){
+		
+	}
+	
+	public Jogador(String nome, List<Acao> acoes, List<Armas> armas){
+		this.nome = nome;
+		this.lista = acoes;
+		this.armas = armas;
+	}
+	
+	public List<Armas> getArmas() {
+		return armas;
+	}
+
+	public void setArmas(List<Armas> armas) {
+		this.armas = armas;
+	}
+
 	public List<Acao> getLista() {
 		return lista;
 	}

@@ -8,8 +8,6 @@
 
 package br.com.entities;
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 
 import javax.persistence.Id;
