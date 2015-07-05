@@ -1,44 +1,63 @@
 package br.com.dao.impl;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import br.com.dao.GenericDao;
 
-public abstract class GenericDaoImpl<T> implements GenericDao<T> {
-
-    @PersistenceContext
-    protected EntityManager em;
-
-    private Class<T> type;
-
+@SuppressWarnings("unchecked")
+@Repository
+public abstract class GenericDaoImpl<E, K extends Serializable> 
+        implements GenericDao<E, K> {
+    @Autowired
+    private SessionFactory sessionFactory;
+     
+    protected Class<? extends E> daoType;
+     
     public GenericDaoImpl() {
         Type t = getClass().getGenericSuperclass();
         ParameterizedType pt = (ParameterizedType) t;
-        type = (Class) pt.getActualTypeArguments()[0];
+        daoType = (Class) pt.getActualTypeArguments()[0];
     }
-
-    @Override
-    public T create(final T t) {
-        this.em.persist(t);
-        return t;
+     
+    protected Session currentSession() {
+        return sessionFactory.getCurrentSession();
     }
-
+     
     @Override
-    public void delete(final Object id) {
-        this.em.remove(this.em.getReference(type, id));
+    public void add(E entity) {
+        currentSession().save(entity);
     }
-
+     
     @Override
-    public T find(final Object id) {
-        return (T) this.em.find(type, id);
+    public void saveOrUpdate(E entity) {
+        currentSession().saveOrUpdate(entity);
     }
-
+     
     @Override
-    public T update(final T t) {
-        return this.em.merge(t);    
+    public void update(E entity) {
+        currentSession().saveOrUpdate(entity);
+    }
+     
+    @Override
+    public void remove(E entity) {
+        currentSession().delete(entity);
+    }
+     
+    @Override
+    public E find(K key) {
+        return (E) currentSession().get(daoType, key);
+    }
+     
+    @Override
+    public List<E> getAll() {
+        return currentSession().createCriteria(daoType).list();
     }
 }

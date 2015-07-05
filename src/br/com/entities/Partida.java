@@ -20,14 +20,14 @@ import org.junit.Test;
 
 @Entity
 public class Partida {
-	private long Id;
+	private Integer Id;
 	private String Nome;
 	private List<Acao> lista;
 	private List<Jogador> jogadores;
 
 	@Id
 	@GeneratedValue
-	public long getId() {
+	public Integer getId() {
 		return Id;
 	}
 
@@ -35,7 +35,7 @@ public class Partida {
 		
 	}
 	
-	public Partida(long id, String nome, List<Acao> acoes, List<Jogador> jogadores){
+	public Partida(Integer id, String nome, List<Acao> acoes, List<Jogador> jogadores){
 		this.Id = id;
 		this.Nome = nome;
 		this.lista = acoes;
@@ -50,7 +50,7 @@ public class Partida {
 		this.jogadores = jogadores;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		Id = id;
 	}
 

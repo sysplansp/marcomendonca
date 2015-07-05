@@ -15,5 +15,27 @@
 	<classpathentry kind="lib" path="lib/jboss-logging-annotations-1.2.0.Beta1.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.13-bin.jar"/>
+	<classpathentry kind="lib" path="lib/spring"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.aop-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.asm-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.aspects-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.beans-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.context-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.context.support-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.core-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.expression-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.instrument-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.instrument.tomcat-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.jdbc-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.jms-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.orm-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.oxm-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.spring-library-3.0.1.RELEASE.libd"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.test-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.transaction-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.web-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.web.portlet-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.web.servlet-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.web.struts-3.0.1.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
