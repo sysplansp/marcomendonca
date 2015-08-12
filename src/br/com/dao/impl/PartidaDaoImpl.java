@@ -16,8 +16,8 @@ public class PartidaDaoImpl extends GenericDaoImpl<Partida, Integer> implements 
 	public List<Partida> Ranking(long id) {
         Query query = currentSession().createQuery(
                 "from Partida " +
-                        "where id=:id");
-        query.setParameter("id", id);
+                        "where Id_Partida:id");
+        query.setParameter("Id_Partida", id);
         
         List<Partida> partidas = query.list();
         

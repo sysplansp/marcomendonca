@@ -11,21 +11,27 @@ package br.com.entities;
 import java.util.Calendar;
 
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 import org.junit.Test;
 
 @Entity
+@Table(name="acao")
 public class Acao {
-	private long Id;
+	private long Id_Acao;
+	private long Id_Partida;
+	private long Id_Jogador;
+	private long Id_Arma;
 	private Calendar data;
 	private String Acao;
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public long getId() {
-		return Id;
+		return Id_Acao;
 	}
 	
 	public Acao (){
@@ -46,7 +52,7 @@ public class Acao {
 	}
 
 	public void setId(long id) {
-		Id = id;
+		Id_Acao = id;
 	}
 
 	public String getAcao() {
@@ -55,6 +61,30 @@ public class Acao {
 
 	public void setAcao(String acao) {
 		Acao = acao;
+	}
+	
+	public long getId_Partida() {
+		return Id_Partida;
+	}
+
+	public void setId_Partida(long id_Partida) {
+		Id_Partida = id_Partida;
+	}
+
+	public long getId_Jogador() {
+		return Id_Jogador;
+	}
+
+	public void setId_Jogador(long id_Jogador) {
+		Id_Jogador = id_Jogador;
+	}
+
+	public long getId_Arma() {
+		return Id_Arma;
+	}
+
+	public void setId_Arma(long id_Arma) {
+		Id_Arma = id_Arma;
 	}
 	
 	@Test

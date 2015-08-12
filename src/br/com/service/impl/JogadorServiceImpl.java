@@ -16,9 +16,58 @@ public class JogadorServiceImpl extends GenericServiceImpl<Jogador, Integer>
 	@Autowired
 	private JogadorDao jogadorDAO;
 	
+	public JogadorServiceImpl(){
+		
+	}
+
+	@Override
+	public void saveOrUpdate(Jogador entity) {
+		Jogador jogador = new Jogador();
+		jogador.setNome(entity.getNome());
+		jogador.setLista(entity.getLista());
+		jogador.setArmas(entity.getArmas());
+		jogador.setVencidas(entity.getVencidas());
+		jogador.setQtdMortes(entity.getQtdMortes());
+
+		jogadorDAO.saveOrUpdate(jogador);
+	}
+	
+	@Override
+	public void add(Jogador entity) {
+		Jogador jogador = new Jogador();
+		jogador.setNome(entity.getNome());
+		jogador.setLista(entity.getLista());
+		jogador.setArmas(entity.getArmas());
+		jogador.setVencidas(entity.getVencidas());
+		jogador.setQtdMortes(entity.getQtdMortes());
+		
+		jogadorDAO.add(jogador);
+	}
+
+	@Override
+	public void update(Jogador entity) {
+		Jogador jogador = new Jogador();
+		jogador.setNome(entity.getNome());
+		jogador.setLista(entity.getLista());
+		jogador.setArmas(entity.getArmas());
+		jogador.setVencidas(entity.getVencidas());
+		jogador.setQtdMortes(entity.getQtdMortes());
+		
+		jogadorDAO.update(jogador);
+	}
+
+	@Override
+	public void remove(Jogador entity) {
+		jogadorDAO.remove(entity);
+	}
+
+	@Override
+	public Jogador get(Integer id) {
+		return jogadorDAO.find(id);
+	}
+
 	@Override
 	public List<Jogador> jogadores(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return jogadorDAO.getAll();
 	}
 }

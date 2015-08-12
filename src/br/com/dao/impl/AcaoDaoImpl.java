@@ -16,8 +16,8 @@ public class AcaoDaoImpl extends GenericDaoImpl<Acao, Integer> implements AcaoDa
 	public List<Acao> acoes(Integer id) {
 		Query query = currentSession().createQuery(
                 "from Acao " +
-                        "where id=:id");
-        query.setParameter("id", id);
+                        "where Id_Acao=:id");
+        query.setParameter("Id_Acao", id);
         
         List<Acao> acoes = query.list();
         

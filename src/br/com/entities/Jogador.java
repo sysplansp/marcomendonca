@@ -13,7 +13,9 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,9 +25,11 @@ public class Jogador {
 	private String nome;
 	private List<Acao> lista;
 	private List<Armas> armas;
+	private int Vencidas;
+	private int qtdMortes;
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public long getId() {
 		return id;
 	}
@@ -40,6 +44,7 @@ public class Jogador {
 		this.armas = armas;
 	}
 	
+	@OneToMany(mappedBy="armas")
 	public List<Armas> getArmas() {
 		return armas;
 	}
@@ -48,6 +53,7 @@ public class Jogador {
 		this.armas = armas;
 	}
 
+	@OneToMany(mappedBy="acao")
 	public List<Acao> getLista() {
 		return lista;
 	}
@@ -67,5 +73,21 @@ public class Jogador {
 	
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public int getVencidas() {
+		return Vencidas;
+	}
+
+	public void setVencidas(int vencidas) {
+		Vencidas = vencidas;
+	}
+	
+	public int getQtdMortes() {
+		return qtdMortes;
+	}
+
+	public void setQtdMortes(int qtd) {
+		this.qtdMortes = qtd;
 	}
 }

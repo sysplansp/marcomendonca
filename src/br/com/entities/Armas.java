@@ -11,18 +11,21 @@ package br.com.entities;
 import static org.junit.Assert.*;
 
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 import org.junit.Test;
 
 @Entity
+@Table(name="armas")
 public class Armas {
 	private long Id;
 	private String Nome;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public long getId() {
 		return Id;
 	}

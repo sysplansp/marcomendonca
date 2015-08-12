@@ -13,22 +13,29 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 import org.junit.Test;
 
 @Entity
+@Table(name="partida")
 public class Partida {
-	private Integer Id;
+	private Integer Id_Partida;
 	private String Nome;
 	private List<Acao> lista;
 	private List<Jogador> jogadores;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
-		return Id;
+		return Id_Partida;
 	}
 
 	public Partida(){
@@ -36,12 +43,13 @@ public class Partida {
 	}
 	
 	public Partida(Integer id, String nome, List<Acao> acoes, List<Jogador> jogadores){
-		this.Id = id;
+		this.Id_Partida = id;
 		this.Nome = nome;
 		this.lista = acoes;
 		this.jogadores = jogadores;
 	}
 	
+	@OneToMany(mappedBy="jogador")
 	public List<Jogador> getJogadores() {
 		return jogadores;
 	}
@@ -51,7 +59,7 @@ public class Partida {
 	}
 
 	public void setId(Integer id) {
-		Id = id;
+		Id_Partida = id;
 	}
 
 	public String getNome() {
@@ -61,7 +69,11 @@ public class Partida {
 	public void setNome(String nome) {
 		Nome = nome;
 	}
-
+	
+	@ManyToMany
+	@JoinTable(name = "partida_acao",
+	joinColumns = @JoinColumn(name = "Id_Partida"),
+	inverseJoinColumns = @JoinColumn(name = "Id_Partida"))
 	public List<Acao> getLista() {
 		return lista;
 	}

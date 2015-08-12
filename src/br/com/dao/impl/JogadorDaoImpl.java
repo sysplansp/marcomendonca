@@ -16,8 +16,8 @@ public class JogadorDaoImpl extends GenericDaoImpl<Jogador, Integer> implements 
 	public List<Jogador> jogadores(Integer id) {
 		Query query = currentSession().createQuery(
                 "from Jogador " +
-                        "where id=:id");
-        query.setParameter("id", id);
+                        "where Id_Jogador=:id");
+        query.setParameter("Id_Jogador", id);
         
         List<Jogador> jogadores = query.list();
         
